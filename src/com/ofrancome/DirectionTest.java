@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class DirectionTest {
 
-    private final Direction underTest = new Direction();
 
     private static Stream<Arguments> provideArgsForDirectTest() {
         return Stream.of(
@@ -29,18 +29,17 @@ class DirectionTest {
     @Test
     public void shouldReturnCardioForIndex3() {
         final List<String> expected = List.of("Cardiologie");
-        assertEquals(expected, underTest.direct(3));
+        assertEquals(expected, Direction.direct(3));
     }
 
     @Test
     public void shouldReturnTraumaForIndex5() {
-        final List<String> expected = List.of("Traumatologie");
-        assertEquals(expected, underTest.direct(5));
+        assertNotNull(Direction.direct(5));
     }
 
     @ParameterizedTest
     @MethodSource("provideArgsForDirectTest")
     public void shouldReturnXonIndexX(final Integer healthIndex, final List<String> expected ) {
-        assertEquals(expected, underTest.direct(healthIndex));
+        assertEquals(expected, Direction.direct(healthIndex));
     }
 }

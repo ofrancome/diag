@@ -11,21 +11,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ServicePrinterTest {
 
-    final ServicePrinter underTest = new ServicePrinter();
-
     private static Stream<Arguments> provedArgsForPrintTest() {
         return Stream.of(
                 Arguments.of(List.of("Cardiologie"), "Cardiologie"),
                 Arguments.of(List.of("Traumatologie"), "Traumatologie"),
                 Arguments.of(List.of("Cardiologie", "Traumatologie"), "Cardiologie, Traumatologie"),
-                Arguments.of(List.of(), ""),
-                Arguments.of(null, "")
+                Arguments.of(List.of(), "")
         );
     }
 
     @ParameterizedTest
     @MethodSource("provedArgsForPrintTest")
     public void shouldPrintListOfDepts(final List<String> depts, final String expected) {
-        assertEquals(expected, underTest.printDeptList(depts));
+        assertEquals(expected, ServicePrinter.printDeptList(depts));
     }
 }
