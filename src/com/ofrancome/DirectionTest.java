@@ -8,6 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.List;
 import java.util.stream.Stream;
 
+import static com.ofrancome.Direction.dept_cardio;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -28,7 +29,7 @@ class DirectionTest {
 
     @Test
     public void shouldReturnCardioForIndex3() {
-        final List<String> expected = List.of("Cardiologie");
+        final List<String> expected = List.of(dept_cardio);
         assertEquals(expected, Direction.direct(3));
     }
 
