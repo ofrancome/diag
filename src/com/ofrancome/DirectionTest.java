@@ -1,5 +1,6 @@
 package com.ofrancome;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -8,7 +9,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static com.ofrancome.Direction.dept_cardio;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -29,7 +29,7 @@ class DirectionTest {
 
     @Test
     public void shouldReturnCardioForIndex3() {
-        final List<String> expected = List.of(dept_cardio);
+        final List<String> expected = List.of("Cardiologie");
         assertEquals(expected, Direction.direct(3));
     }
 
@@ -42,5 +42,21 @@ class DirectionTest {
     @MethodSource("provideArgsForDirectTest")
     public void shouldReturnXonIndexX(final Integer healthIndex, final List<String> expected ) {
         assertEquals(expected, Direction.direct(healthIndex));
+    }
+
+    @Test
+    public void testAll() {
+        for (int index = 0; index < 100; index++) {
+            if (index == 0) {
+                Assertions.assertTrue(Direction.direct(index).contains("Accueil"));
+            } else {
+                if (index % 3 == 0) {
+                    Assertions.assertTrue(Direction.direct(index).contains("Cardiologie"));
+                }
+                if (index % 5 == 0) {
+                    Assertions.assertTrue(Direction.direct(index).contains("Traumatologie"));
+                }
+            }
+        }
     }
 }
