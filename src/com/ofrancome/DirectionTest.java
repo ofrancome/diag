@@ -23,6 +23,18 @@ class DirectionTest {
     }
 
     @Test
+    public void shouldReturnCardioForIndex6() {
+        final List<String> expected = List.of("Cardiologie");
+        assertEquals(expected, direction.direct(6));
+    }
+
+    @Test
+    public void shouldReturnTraumaForIndex10() {
+        final List<String> expected = List.of("Traumatologie");
+        assertEquals(expected, direction.direct(10));
+    }
+
+    @Test
     public void shouldReturnAccueilForIndex0() {
         final List<String> expected = List.of("Accueil");
         assertEquals(expected, direction.direct(0));

@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ServicePrinterTest {
+class PrinterTest {
 
     private static Stream<Arguments> provedArgsForPrintTest() {
         return Stream.of(
@@ -23,6 +23,6 @@ class ServicePrinterTest {
     @ParameterizedTest
     @MethodSource("provedArgsForPrintTest")
     public void shouldPrintListOfDepts(final List<String> depts, final String expected) {
-        assertEquals(expected, ServicePrinter.printDeptList(depts));
+        assertEquals(expected, Printer.printDeptList(depts));
     }
 }

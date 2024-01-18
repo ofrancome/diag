@@ -11,7 +11,7 @@ public class Main {
             final int input = scanner.nextInt();
             if (input == -1) break;
 
-            System.out.println(ServicePrinter.printDeptList(direction.direct(input)));
+            System.out.println(Printer.printDeptList(direction.direct(input)));
         }
 
     }

@@ -3,9 +3,9 @@ package com.ofrancome;
 import java.util.List;
 import java.util.StringJoiner;
 
-public class ServicePrinter {
+public class Printer {
 
-    public ServicePrinter() {
+    public Printer() {
     }
 
     // Pour une liste de départements donnée, renvoie une String concaténant les services,
