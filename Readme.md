@@ -1,4 +1,4 @@
-Tests:
+Diagnostique:
 
 - Pour un index 3, doit renvoyer Cardiologie
 - Pour un index 5, doit renvoyer Traumatologie
